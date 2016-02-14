@@ -1,6 +1,6 @@
 import { match } from 'react-router'
 
-export default (routes, matcher) => (renderResponse, renderFunction) => (req, res) => {
+export default (routes, matcher) => (renderTemplate, renderApp) => (req, res) => {
     // Enable mocking
     const matcherFunc = typeof matcher !== "undefined" ? matcher : match
 
@@ -10,7 +10,7 @@ export default (routes, matcher) => (renderResponse, renderFunction) => (req, re
         } else if(redirectLocation) {
             res.status(301).redirect(redirectLocation.pathname + redirectLocation.search)
         } else if(renderProps) {
-            renderResponse(renderFunction(renderProps, req, res), res)
+            renderTemplate(renderApp(renderProps, req, res), res)
         } else {
             res.status(404).send('Not found')
         }
