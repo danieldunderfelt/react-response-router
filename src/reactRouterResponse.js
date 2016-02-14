@@ -5,14 +5,14 @@ export default (routes, matcher) => (renderResponse, renderFunction) => (req, re
     const matcherFunc = typeof matcher !== "undefined" ? matcher : match
 
     matcherFunc({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
-        if(redirectLocation) {
-            res.status(301).redirect(redirectLocation.pathname + redirectLocation.search)
-        } else if(error) {
+        if(error) {
             res.status(500).send(error.message)
-        } else if(renderProps === null) {
-            res.status(404).send('Not found')
-        } else {
+        } else if(redirectLocation) {
+            res.status(301).redirect(redirectLocation.pathname + redirectLocation.search)
+        } else if(renderProps) {
             renderResponse(renderFunction(renderProps, req, res), res)
+        } else {
+            res.status(404).send('Not found')
         }
     })
 }
