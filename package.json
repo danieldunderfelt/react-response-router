@@ -2,7 +2,7 @@
   "name": "react-response-router",
   "version": "0.0.2",
   "description": "React server-side rendering implementation with minimal configuration.",
-  "main": "./lib/index.js",
+  "main": "./lib/reactRouterResponse.js",
   "scripts": {
     "prepublish": "npm run build",
     "build": "gulp build",
@@ -61,8 +61,7 @@
     "tape": "^4.4.0"
   },
   "library": {
-    "name": "react-response-router",
-    "entry": "index.js"
+    "name": "react-response-router"
   },
   "peerDependencies": {
     "react-router": "^2.0.0"
