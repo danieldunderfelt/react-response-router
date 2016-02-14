@@ -45,3 +45,5 @@ This project uses Tape and Sinon for testing and Gulp as its build system. Run t
 # Collaboration
 
 PR's welcome! Please add tests for all changes and follow the general coding style. Semicolons are banned ;)
+
+Please send all issues to [React-response's issue tracker](https://github.com/danieldunderfelt/react-response/issues).
